@@ -6,7 +6,7 @@ export default function Contato() {
 
   const handleClick = () => {
     navigate("/login/" + parametro, {
-      state: "eu sou uma informacao que nao aparece na url",
+      state: { info: "eu sou uma informacao que nao aparece na url" },
     });
   };
 
