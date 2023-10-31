@@ -1,23 +1,30 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
+  const navigate = useNavigate();
 
   //function entrar(){}
   const entrar = () => {
     console.log("FUNCAO ENTRAR");
     if (login == "" || senha == "") {
       console.log("Preencha os campos de login e senha!");
-    } else {
+    } else if (login == "mahyara" && senha == "1234") {
       const info = {
         login: login,
         senha: senha,
       };
+
       console.log(info);
       //localStrorage.setItem("info", JSON.stringify(info))
       setLogin("");
       setSenha("");
+      //levando pra home
+      navigate(`/home/${login}`);
+    } else {
+      console.log("Login e Senha não identificados!");
     }
   };
   return (

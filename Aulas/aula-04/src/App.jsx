@@ -12,6 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home/:login" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contatos" element={<Contato />} />
         <Route path="*" element={<h1>Página não encontrada</h1>} />
