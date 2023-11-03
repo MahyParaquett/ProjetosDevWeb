@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [login, setLogin] = useState("");
@@ -10,7 +10,7 @@ export default function Login() {
   const entrar = () => {
     console.log("FUNCAO ENTRAR");
     if (login == "" || senha == "") {
-      console.log("Preencha os campos de login e senha!");
+      alert("Preencha os campos de login e senha!");
     } else if (login == "mahyara" && senha == "1234") {
       const info = {
         login: login,
@@ -26,12 +26,12 @@ export default function Login() {
       navigate(`/home/${login}`);
       //navigate("/home/"+login) é a mesma coisa que o anterior
     } else {
-      console.log("Login e Senha não identificados!");
+      alert("Login ou Senha não identificados!");
     }
   };
   return (
     <>
-      <h1>Página de login</h1>
+      <h1>login</h1>
       <form>
         <input
           type="text"

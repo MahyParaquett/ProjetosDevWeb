@@ -1,0 +1,17 @@
+.tarefa {
+  display: flex;
+  justify-content: center;
+}
+
+.botaoExcluir {
+  margin-left: 100px;
+  padding: 20;
+  /* padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px; */
+}
+
+.check {
+  margin-left: 50px;
+}
