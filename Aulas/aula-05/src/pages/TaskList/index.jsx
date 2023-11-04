@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Task from "../../components/task";
 import CadastrarTarefa from "../../components/CadastrarTarefa";
+import { Link } from "react-router-dom";
+import Editar from "../../components/Editar";
 
 const url = "https://6542cd3301b5e279de1f982d.mockapi.io/tasklist";
 
@@ -9,6 +11,26 @@ export default function TaskList() {
   const [novaTarefa, setNovaTarefa] = useState("");
   const [tarefas, setTarefas] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  //Puxando a api put
+  const editarTarefa = async (id) => {
+    const task = {
+      prioridade: "alta",
+    };
+    try {
+      const { data } = await axios.put(`${url}/11`, task);
+      const arrayEditado = tarefas.map((item) => {
+        if (11 == item.id) {
+          return data;
+        }
+        return item;
+      });
+      setTarefas(arrayEditado);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   //Puxando a api post
   const cadastrar = async () => {
@@ -87,7 +109,13 @@ export default function TaskList() {
         {/*Exibir o array que ta salvando as tarefas*/}
         {/*O index é a posição da string que esta se passando de id*/}
         {tarefas.map((item) => (
-          <Task key={item.id} item={item} excluirTarefa={excluirTarefa} />
+          <div key={item.id}>
+            <Task
+              item={item}
+              excluirTarefa={excluirTarefa}
+              editarTarefa={editarTarefa}
+            />
+          </div>
         ))}
       </section>
     </main>

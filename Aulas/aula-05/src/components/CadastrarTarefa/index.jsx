@@ -1,3 +1,5 @@
+import { Titulo } from "../styledComponents";
+
 export default function CadastrarTarefa({
   novaTarefa,
   setNovaTarefa,
@@ -5,13 +7,15 @@ export default function CadastrarTarefa({
 }) {
   return (
     <>
-      <h2>Cadastre sua tarefa</h2>
+      <Titulo>Cadastre sua tarefa</Titulo>
       <input
         type="text"
         value={novaTarefa}
         onChange={(e) => setNovaTarefa(e.target.value)}
       />
-      <button onClick={cadastrar}>Cadastrar</button>
+      <button onClick={cadastrar} className="m-4 btn btn-primary">
+        Cadastrar
+      </button>
     </>
   );
 }
