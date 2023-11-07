@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Task from "../../components/task";
 import CadastrarTarefa from "../../components/CadastrarTarefa";
-import { Link } from "react-router-dom";
-import Editar from "../../components/Editar";
+import { AuthContext } from "../../pages/context/AuthContext";
 
 const url = "https://6542cd3301b5e279de1f982d.mockapi.io/tasklist";
 
@@ -11,6 +10,8 @@ export default function TaskList() {
   const [novaTarefa, setNovaTarefa] = useState("");
   const [tarefas, setTarefas] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const { sair } = useContext(AuthContext);
 
   //Puxando a api put
   const editarTarefa = async (id) => {
