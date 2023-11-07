@@ -3,8 +3,9 @@ import axios from "axios";
 import Task from "../../components/task";
 import CadastrarTarefa from "../../components/CadastrarTarefa";
 import { AuthContext } from "../../pages/context/AuthContext";
+import api from "../../services/api";
 
-const url = "https://6542cd3301b5e279de1f982d.mockapi.io/tasklist";
+const url = "https://654ab8fb5b38a59f28ee2b8e.mockapi.io/tasklist";
 
 export default function TaskList() {
   const [novaTarefa, setNovaTarefa] = useState("");
@@ -77,7 +78,7 @@ export default function TaskList() {
       //   "https://6542c27001b5e279de1f8a8c.mockapi.io/tasklist"
       // );
       // const infos = await dados.json();
-      const { data } = await axios.get(url);
+      const { data } = await api.get("/tasklist");
       console.log(data);
       setTarefas(data);
     } catch (err) {
